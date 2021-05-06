@@ -1,0 +1,23 @@
+{
+  "name": "hashshare-front",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "Chart.js#^2.9.4",
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1",
+    "font-awesome": "^5.15.1",
+    "bootstrap-datepicker": "^1.9.0",
+    "popper.js": "^2.5.4",
+    "angular-cli": "^11.0.3"
+  }
+}

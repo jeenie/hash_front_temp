@@ -1,0 +1,126 @@
+
+
+  /* 세로 컨텐츠들의 반응형 처리 */
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* 메뉴 반응형 처리 */
+  mat-sidenav-container {
+    display: flex;
+    flex: 1;
+  }
+  
+  /* 상단 메뉴 꽉차도록 처리 */
+  mat-sidenav-content {
+    width: 100%
+  }
+  
+  
+  
+  /* 메뉴의 anchor 태그 스타일 지정 최초는 흰색, 클릭시 회색으로 변경 */
+  /* a {
+    text-decoration: none;
+    color: white;
+  } */
+  
+  a:hover,
+  a:active {
+    color: lightgray;
+  }
+  
+  /* 상단메뉴 스타일 지정. 마우스오버시 커서 형태 지정 */
+  .navigation-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  /* 상단 메뉴 아이콘 스타일 지정 */
+
+  mat-toolbar{
+    background: #ffffff;
+  }
+
+  mat-toolbar div ul li a span{
+    font-size: 10px;
+  } 
+
+  mat-toolbar div button{
+    background-color: #ffffff;
+  }
+
+  .sidenav-container {
+    z-index: -1 !important;
+  }
+
+/* SIDEBAR */
+  mat-sidenav {
+    min-width: 200px;
+    background-color: #f5f6fa;
+  }
+
+  mat-sidenav mat-expansion-panel {
+    background-color: #f5f6fa;
+  }
+
+  mat-sidenav mat-nav-list a span{
+    font-size:2px;
+    font-weight:bold;
+    color: #8094ae;
+
+  }
+
+  mat-sidenav mat-expansion-panel mat-expansion-panel-header span{
+    font-size:2px;
+    font-weight:bold;
+    color: #8094ae;
+  }
+
+  mat-sidenav mat-expansion-panel mat-nav-list a{
+    font-size:2px;
+    font-weight:bold;
+    color: #8094ae;
+  }
+
+
+  mat-sidenav mat-nav-list a svg{
+    color: #8094ae;
+    margin-right:10px;
+  }
+
+  mat-sidenav mat-expansion-panel mat-expansion-panel-header svg{
+    color: #8094ae;
+    margin-right:10px;
+  }
+
+
+
+  
+  /* FOOTER */
+  footer {
+    padding: 10px 0 10px 0;
+    font-size: 12px;
+    line-height: 20px;
+    background: #ffffff;
+    color: #526484;
+  }
+   
+  /* footer .container-fluid .nk-footer-wrap .nk-footer-copyright{
+    text-align: left;
+  } */
+  footer .nk-footer-links .nav li {
+    text-align: center;
+  }
+  
+
+  footer .container-fluid .nk-footer-links .nav .nav-item a{
+      color: #526484;
+      text-align: center;
+      
+    
+  }
+

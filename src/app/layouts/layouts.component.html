@@ -1,0 +1,202 @@
+<div class="nk-header nk-header-fluid nk-header-fixed is-light px-xl-5">
+	
+		
+
+
+
+    <script>
+        var dropFlag = true;
+        $(document).ready(function(){
+            var lang = "ko";
+            switch(lang) {
+            case 'ko': $('#lang-title').text('Korea');
+                break;
+            case 'en': $('#lang-title').text('English');
+                break;
+            case 'ru': $('#lang-title').text('Russia');
+                break;
+            }
+            
+            $('.call-dropdown-user').click(function(e){
+                e.stopPropagation();
+                $('.user-menu-dropdown').fadeToggle();
+                $('.has-sub + .sub-menu').fadeOut();
+            });
+            
+            
+            
+            $('.customer').click(function(e){
+                e.stopPropagation();
+                $('.has-sub + .sub-menu').fadeIn();
+                $('.user-menu-dropdown').fadeOut();
+            });
+    
+            $('.customer_product').click(function(e){
+                
+                e.stopPropagation();
+                $('.has-sub_product + .sub-menu_product').fadeIn();
+                $('.user-menu-dropdown').fadeOut();
+                
+            });
+            
+            $('body').click(function () {
+                $('.user-menu-dropdown').fadeOut();
+                $('.has-sub + .sub-menu').fadeOut();
+            });
+            $(window).resize(function(){
+                $('.nk-sidebar-overlay').fadeOut();
+                $('.user-menu-dropdown').fadeOut();
+                $('.has-sub + .sub-menu').fadeOut();
+            });		
+        });
+        function fn_getPageUrl(menucd) {
+            var url= '/com/base/getPageUrl.do';
+            $(':input[name=menu_cd]').val(menucd);
+            jQuery('#frmMENU').attr('action',url);  
+            jQuery('#frmMENU').submit();
+        }
+        function fn_change_lang(event){
+            var lang = $(event).data("lang");
+            
+            fn_setLanguage(lang);
+        }
+    </script>
+    
+    <form name="frmMENU" id="frmMENU" method="POST" action="#">
+      <input type="hidden" name="menu_cd" id="menu_cd" value="MN0201000000">
+    </form>
+    
+            <div class="container-fluid">
+                <div class="nk-header-wrap">
+                    <div class="header-left-wrap">
+                        <div class="nk-menu-trigger m ml-n1">
+                            <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                        </div>
+                        <div class="nk-header-brand pc">
+                            <a href="/user/main/getWelcome.do" class="logo-link">
+                                <img class="" src="/resources/pow/images/logo-dark.png" srcset="/resources/pow/images/logo-dark2x.png 2x" alt="logo">
+                                <!-- <img class="m" src="/resources/pow/images/logo-dark-small.png" srcset="/resources/pow/images/logo-dark-small2x.png 2x" alt="logo"> -->
+                            </a>
+                        </div>
+                        <div class="nk-header-link d-none d-xl-block">
+                            <ul>
+                                <li><a href="javascript:alert('준비중입니다.');">마스터노드</a></li>
+                                <li><a href="javascript:alert('준비중입니다.');">해시콘</a></li>
+                                <li><a href="javascript:alert('준비중입니다.');">소셜트레이딩</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header-middle-wrap m">
+                            <a href="/user/main/getWelcome.do" class="logo-link">
+                                <img class="" src="/resources/pow/images/logo-dark.png" srcset="/resources/pow/images/logo-dark2x.png 2x" alt="logo">
+                            </a>
+                        </div>
+                    <div class="header-right-wrap">
+                        <div class="nk-header-menu">
+                            <ul>
+                                <li><a href="/user/main/getService.do" id="service_pc">서비스 소개</a></li>
+                                
+                                
+                                <!-- <li><a href="/user/product/getBuy.do" id="buy_pc">상품</a></li>  -->
+                                
+                                
+                                <li>
+                                    <a href="javascript:void(0)" class="customer_product has-sub_product">상품</a>
+                                    <ul class="sub-menu_product">
+                                    
+                                        <!-- <li><a href="/user/product/getBuy.do?select_coin_id=BTC" id="product_BTC">공지사항</a></li>
+                                        <li><a href="/user/product/getBuy.do?select_coin_id=HSS" id="product_HSS">문의하기</a></li> -->
+                                        <li><a href="/user/product/getBuy.do?select_coin_id=BTC" id="product_BTC">BTC로 구입</a></li>
+                                        <li><a href="/user/product/getBuy.do?select_coin_id=HSS" id="product_HSS">HSS로 구입</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                                <li><a href="/user/usd/getUsdBuy.do" id="buy_usd_pc">USD 상품</a></li>
+                                
+                                <li>
+                                    <a href="javascript:void(0)" class="customer has-sub">고객센터</a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li><a href="/user/bbs/getNotiList.do" id="notice_pc">공지사항</a></li>
+                                        
+                                        
+                                        
+                                        <li><a href="/user/bbs/getContactList.do" id="contact_pc">문의하기</a></li>
+                                        
+                                        
+                                        <li><a href="javascript:alert('준비중입니다.');">FAQ</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>	
+                        
+                        <div id="lang">
+                            <a href="#" class="nk-menu-link dropdown-indicator has-indicator" data-toggle="dropdown" data-offset="0,10" data-original-title="" title=""> 
+                                <span class="nk-menu-icon"><em class="icon ni ni-globe"></em></span>
+                                <span class="nk-menu-text" id="lang-title">Korea</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                <ul class="language-list">
+                                    <li class="language" data-lang="ko" onclick="fn_change_lang(this)">
+                                        <a href="#" class="language-item">
+                                            <img src="/resources/img/template/lang/ko.svg" alt="" class="language-flag">
+                                            <span class="language-name" data-language="Korea" data-lang="ko" onclick="fn_change_lang(this)">Korea</span>
+                                        </a>
+                                    </li>
+                                    <li class="language" data-lang="en" onclick="fn_change_lang(this)">
+                                    <a href="#" class="language-item">
+                                        <img src="/resources/img/template/lang/en.svg" alt="" class="language-flag">
+                                        <span class="language-name" data-language="English">English</span>
+                                    </a>
+                                    </li>
+                                    <li class="language" data-lang="ru" onclick="fn_change_lang(this)">
+                                        <a href="#" class="language-item">
+                                            <img src="/resources/img/template/lang/ru.svg" alt="" class="language-flag">
+                                            <span class="language-name" data-language="Russia">Russia</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>	
+                                            
+                        <div class="nk-header-user">
+                            <ul>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    <li>
+                                        <a class="btn btn-outline-light dropdown-usermenu call-dropdown-user pc">soon0509<em class="icon ni ni-downward-ios"></em>
+                                        </a>
+                                    </li>
+                                    
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="nk-header-btn m">
+                        <!-- 로그인 전 모바일 유저메뉴 버튼 (로그인페이지링크)
+                        <a href="/user/pub/login.do"><em class="icon ni ni-user-alt"></em></a>-->
+                        <!-- 로그인 후 모바일 유저메뉴 버튼 (드롭다운 호출)-->
+                        <a href="javascript:void(0)" class="call-dropdown-user"><em class="icon ni ni-user-alt"></em></a>
+    
+                    </div>
+                    <ul class="user-menu-dropdown">
+                        
+                    
+                        
+                        
+                            <li class="border-bottom"><a href="#" onclick="fn_getPageUrl('MN0100000000')"><em class="icon ni ni-bar-chart-alt"></em> 나의 투자 바로가기</a></li>
+                            <li><a class="bg-light" href="#" onclick="fn_getPageUrl('MN0900000000')"><em class="icon ni ni-setting-fill"></em> 설정</a></li>
+                            <li><a class="bg-light" href="/user/login/getLogout.do"> <em class="icon ni ni-signout"></em> 로그아웃</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+    
+    
+        
+        </div>
